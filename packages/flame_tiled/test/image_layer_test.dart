@@ -49,6 +49,7 @@ void main() {
           matchesGoldenFile('goldens/image_layer_covers_map.png'),
         );
       },
+      tags: 'golden',
     );
   });
 }

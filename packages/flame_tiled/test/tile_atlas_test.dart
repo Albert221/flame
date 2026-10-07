@@ -123,7 +123,7 @@ void main() {
           await imageToPng(atlas.atlas!),
           matchesGoldenFile('goldens/single_atlas.png'),
         );
-      });
+      }, tags: 'golden');
 
       test(
         'single image tileset with relative image path loads correctly',
@@ -172,7 +172,7 @@ void main() {
           renderMapToPng(component),
           matchesGoldenFile('goldens/larger_atlas_component.png'),
         );
-      });
+      }, tags: 'golden');
 
       test(
         'packs complex maps with multiple images using a custom spacing',
@@ -198,6 +198,7 @@ void main() {
             ),
           );
         },
+        tags: 'golden',
       );
 
       test('can ignore tilesets in the packing', () async {
@@ -214,7 +215,7 @@ void main() {
           await imageToPng(atlas.atlas!),
           matchesGoldenFile('goldens/larger_atlas_with_skipped_tileset.png'),
         );
-      });
+      }, tags: 'golden');
 
       test('clearing cache', () async {
         await TiledAtlas.fromTiledMap(
@@ -283,6 +284,7 @@ void main() {
             matchesGoldenFile('goldens/single_tile_map_2.png'),
           );
         },
+        tags: 'golden',
       );
     });
   });

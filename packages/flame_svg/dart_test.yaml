@@ -1,0 +1,3 @@
+tags:
+  # Golden tests run in the pinned golden-env image, see doc/development/testing_guide.md.
+  golden:

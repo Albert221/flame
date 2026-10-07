@@ -92,6 +92,7 @@ void main() {
           matchesGoldenFile('golden/steering/render_debug_mode.png'),
         );
       },
+      tags: 'golden',
     );
   });
 }

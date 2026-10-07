@@ -28,6 +28,10 @@ import 'package:meta/meta.dart';
 /// The [size] parameter controls the size of the "device" on which the game
 /// widget is rendered, if omitted it defaults to 2400x1800. This size will be
 /// equal to the canvas size of the game.
+///
+/// The test is tagged with `golden` by default, so that golden tests can be
+/// selected with `flutter test --tags golden` (or excluded with
+/// `--exclude-tags golden`). Pass [tags] to override this.
 @isTest
 void testGolden(
   String testName,
@@ -37,6 +41,7 @@ void testGolden(
   Color? backgroundColor,
   FlameGame? game,
   bool skip = false,
+  Object? tags = 'golden',
 }) {
   testWidgets(
     testName,
@@ -74,6 +79,7 @@ void testGolden(
       );
     },
     skip: skip,
+    tags: tags,
   );
 }
 

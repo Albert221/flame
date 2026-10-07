@@ -57,6 +57,7 @@ void main() {
           matchesGoldenFile('golden/pursue_behavior/render_debug_mode.png'),
         );
       },
+      tags: 'golden',
     );
   });
 }

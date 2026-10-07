@@ -81,4 +81,25 @@ jobs:
       - uses: bluefireteam/melos-action@v3
       - name: Run tests
         run: melos run test:select --no-select
+
+  goldens:
+    # golden-env needs an x86-64 runner, ARM would render differently.
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - packages/flame
+          - packages/flame_forge2d
+          - packages/flame_sprite_fusion
+          - packages/flame_steering_behaviors
+          - packages/flame_svg
+          - packages/flame_test
+          - packages/flame_test/example
+          - packages/flame_tiled
+    steps:
+      - uses: actions/checkout@v7
+      - uses: albert221/golden-env@v1
+        with:
+          working-directory: ${{ matrix.package }}
   # END TESTING STAGE

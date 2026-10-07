@@ -25,6 +25,7 @@ void main() {
           matchesGoldenFile('golden_test.png'),
         );
       },
+      tags: 'golden',
     );
 
     testGolden(

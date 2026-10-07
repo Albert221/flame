@@ -134,24 +134,26 @@ simple:
    `goldenFile` parameter is the name of the file where you want to store the "golden" results. This
    should be a relative path to the `test/_goldens` directory, starting from your test file.
 
-2. Run
+2. Golden files must be rendered with [golden-env](https://github.com/Albert221/golden-env), the
+   pinned Linux image (see `golden-env.lock` in the repository root) that CI also uses. Different
+   platforms and CPUs render differently, so a golden rendered anywhere else will not match on CI.
+   On an Apple Silicon Mac, install `golden-run` and run, from the package directory:
 
    ```shell
-   flutter test --update-goldens
+   golden-run --update-goldens
    ```
 
    this would create the golden file for the first time. Open the file to verify that it renders
    exactly as you intended. If not, then delete the file and go back to step 1.
 
-3. Subsequent runs of `flutter test` will check whether the output of the golden test matches the
-   saved golden file. If not, Flutter will save the image-diff files into the `failures/` directory
+3. Subsequent runs of `golden-run` will check whether the output of the golden tests matches the
+   saved golden files. If not, Flutter will save the image-diff files into the `failures/` directory
    where your test is located.
 
-```{note}
-Avoid using text in your golden tests -- it does not render reliably across
-different platforms, due to font discrepancies and differences in
-anti-aliasing algorithms.
-```
+`testGolden` tags its test with `golden`. If you call `matchesGoldenFile` directly, add
+`tags: 'golden'` to the test yourself, and make sure the package declares the tag in its
+`dart_test.yaml`. Golden tests are excluded from the regular CI test job and run only in golden-env.
+To skip them locally when running natively, use `flutter test --exclude-tags golden`.
 
 
 ### Random tests
