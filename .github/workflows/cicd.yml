@@ -88,10 +88,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # flame_forge2d is left out: forge2d builds native assets, and the
-        # image has no C toolchain, so its goldens still run in `test`.
         package:
           - packages/flame
+          - packages/flame_forge2d
           - packages/flame_sprite_fusion
           - packages/flame_steering_behaviors
           - packages/flame_svg
@@ -100,18 +99,7 @@ jobs:
           - packages/flame_tiled
     steps:
       - uses: actions/checkout@v7
-      - name: Run golden tests
-        uses: albert221/golden-env@v1
+      - uses: albert221/golden-env@v1
         with:
           working-directory: ${{ matrix.package }}
-          # The action's artifact name is fixed, so it would collide between
-          # matrix jobs; failures are uploaded below instead.
-          upload-failures: false
-      - name: Upload golden failures
-        if: failure()
-        uses: actions/upload-artifact@v7
-        with:
-          name: golden-failures-${{ strategy.job-index }}
-          path: ${{ matrix.package }}/**/failures/**
-          if-no-files-found: ignore
   # END TESTING STAGE

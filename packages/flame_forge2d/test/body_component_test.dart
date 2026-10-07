@@ -69,6 +69,7 @@ void main() {
               matchesGoldenFile(goldenPath('circle_shape')),
             );
           },
+          tags: 'golden',
         );
 
         flameTester.testGameWidget(
@@ -93,6 +94,7 @@ void main() {
               matchesGoldenFile(goldenPath('segment_shape')),
             );
           },
+          tags: 'golden',
         );
 
         flameTester.testGameWidget(
@@ -121,6 +123,7 @@ void main() {
               matchesGoldenFile(goldenPath('capsule_shape')),
             );
           },
+          tags: 'golden',
         );
 
         flameTester.testGameWidget(
@@ -152,6 +155,7 @@ void main() {
               matchesGoldenFile(goldenPath('polygon_shape')),
             );
           },
+          tags: 'golden',
         );
 
         flameTester.testGameWidget(
@@ -187,6 +191,7 @@ void main() {
               matchesGoldenFile(goldenPath('chain_shape_open')),
             );
           },
+          tags: 'golden',
         );
 
         flameTester.testGameWidget(
@@ -219,6 +224,7 @@ void main() {
               matchesGoldenFile(goldenPath('chain_shape_closed')),
             );
           },
+          tags: 'golden',
         );
       });
     });
