@@ -108,6 +108,7 @@ void main() {
             matchesGoldenFile('../../_goldens/snapshot_test_1.png'),
           );
         },
+        tags: 'golden',
       );
 
       testWidgets(
@@ -149,6 +150,7 @@ void main() {
             matchesGoldenFile('../../_goldens/snapshot_test_2.png'),
           );
         },
+        tags: 'golden',
       );
 
       testGolden(

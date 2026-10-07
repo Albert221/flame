@@ -88,6 +88,7 @@ void main() {
           matchesGoldenFile('./_goldens/render_sharply.png'),
         );
       },
+      tags: 'golden',
     );
 
     testWidgets(
@@ -124,6 +125,7 @@ void main() {
           ),
         );
       },
+      tags: 'golden',
     );
   });
 }

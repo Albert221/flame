@@ -36,6 +36,7 @@ void main() {
           matchesGoldenFile('goldens/game.png'),
         );
       },
+      tags: 'golden',
     );
   });
 }

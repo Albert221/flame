@@ -422,7 +422,7 @@ void main() {
       await prepareForGolden(ignoreFlip: false);
       expect(texture, matchesGoldenFile('goldens/texture_with_flip.png'));
       expect(rendered, matchesGoldenFile('goldens/rendered_with_flip.png'));
-    });
+    }, tags: 'golden');
 
     test('flip ignored with [ignoreFlip = true]', () async {
       await prepareForGolden(ignoreFlip: true);
@@ -434,7 +434,7 @@ void main() {
         rendered,
         matchesGoldenFile('goldens/rendered_with_flip_ignored.png'),
       );
-    });
+    }, tags: 'golden');
   });
 
   group('Test getLayer:', () {
@@ -509,6 +509,7 @@ void main() {
         'assets/tiles/map.tmx',
         Vector2(16, 16),
         bundle: Flame.bundle,
+        images: Images(bundle: Flame.bundle),
         camera: camera,
       );
       game.world.add(component);
@@ -530,6 +531,7 @@ void main() {
 
         expect(pngData, matchesGoldenFile('goldens/orthogonal.png'));
       },
+      tags: 'golden',
     );
 
     test('layers are positioned for the parallax factor and offset', () async {
@@ -578,7 +580,7 @@ void main() {
       final pngData = await renderMapToPng(component);
 
       expect(pngData, matchesGoldenFile('goldens/isometric.png'));
-    });
+    }, tags: 'golden');
   });
 
   group('hexagonal', () {
@@ -615,7 +617,7 @@ void main() {
       final pngData = await renderMapToPng(component);
 
       expect(pngData, matchesGoldenFile('goldens/flat_hex_even.png'));
-    });
+    }, tags: 'golden');
 
     test('flat + odd staggered', () async {
       await setupMap(
@@ -629,7 +631,7 @@ void main() {
       final pngData = await renderMapToPng(component);
 
       expect(pngData, matchesGoldenFile('goldens/flat_hex_odd.png'));
-    });
+    }, tags: 'golden');
 
     test('pointy + even staggered', () async {
       await setupMap(
@@ -643,7 +645,7 @@ void main() {
       final pngData = await renderMapToPng(component);
 
       expect(pngData, matchesGoldenFile('goldens/pointy_hex_even.png'));
-    });
+    }, tags: 'golden');
 
     test('pointy + odd staggered', () async {
       await setupMap(
@@ -657,7 +659,7 @@ void main() {
       final pngData = await renderMapToPng(component);
 
       expect(pngData, matchesGoldenFile('goldens/pointy_hex_odd.png'));
-    });
+    }, tags: 'golden');
   });
 
   group('tile offset', () {
@@ -699,7 +701,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/test_tile_offset_hexagonal.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('tile offset isometric', () async {
       await setupMap(
@@ -716,7 +718,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/test_tile_offset_isometric.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('tile offset orthogonal', () async {
       await setupMap(
@@ -733,7 +735,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/test_tile_offset_orthogonal.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('tile offset staggered', () async {
       await setupMap(
@@ -750,7 +752,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/test_tile_offset_staggered.png'),
       );
-    });
+    }, tags: 'golden');
   });
 
   group('isometric staggered', () {
@@ -790,7 +792,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/iso_staggered_overlap_x_odd.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('x + even + half sized', () async {
       await setupMap(
@@ -807,7 +809,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/iso_staggered_overlap_x_even.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('y + odd + half', () async {
       await setupMap(
@@ -824,7 +826,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/iso_staggered_overlap_y_odd.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('y + even', () async {
       await setupMap(
@@ -841,7 +843,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/iso_staggered_overlap_y_even.png'),
       );
-    });
+    }, tags: 'golden');
   });
 
   group('shifted and scaled', () {
@@ -873,7 +875,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/shifted_scaled_regular.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('smaller', () async {
       final smallSize = size / 3;
@@ -884,7 +886,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/shifted_scaled_smaller.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('larger', () async {
       final largeSize = size * 2;
@@ -895,7 +897,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/shifted_scaled_larger.png'),
       );
-    });
+    }, tags: 'golden');
   });
 
   group('TileStack', () {
@@ -947,7 +949,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/tile_stack_all_move.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('can be positioned singularly', () async {
       final stack = component.tileMap.tileStack(0, 0, named: {'item'});
@@ -958,7 +960,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/tile_stack_single_move.png'),
       );
-    });
+    }, tags: 'golden');
   });
 
   group('animated tiles', () {
@@ -1085,7 +1087,7 @@ void main() {
             pngData,
             matchesGoldenFile('goldens/dungeon_animation_${mapType}_3.png'),
           );
-        });
+        }, tags: 'golden');
       });
     }
   });
@@ -1122,7 +1124,7 @@ void main() {
             pngData,
             matchesGoldenFile('goldens/oversized_tiles_$mapType.png'),
           );
-        });
+        }, tags: 'golden');
       });
     }
   });
@@ -1173,7 +1175,7 @@ void main() {
           pngData,
           matchesGoldenFile('goldens/oversized_demo_$mapType.png'),
         );
-      });
+      }, tags: 'golden');
     }
 
     // Every flip and rotation combination of the oversized tile, from left to
@@ -1211,7 +1213,7 @@ void main() {
           pngData,
           matchesGoldenFile('goldens/oversized_demo_flips_$mapType.png'),
         );
-      });
+      }, tags: 'golden');
     }
 
     test('tiles of a TileStack stay on the center of their cell', () async {
@@ -1541,7 +1543,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/parallax_camera_origin.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('renders through the camera away from the origin', () async {
       game.camera.viewfinder.position = Vector2(400, 160);
@@ -1550,7 +1552,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/parallax_camera_offset.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('repeating image layers cover the view far from the origin', () async {
       component.tileMap.setLayerVisibility(2, visible: true);
@@ -1560,7 +1562,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/parallax_camera_repeat.png'),
       );
-    });
+    }, tags: 'golden');
   });
 
   group('RenderableTiledMap.LayerOpacity nested groups', () {
@@ -1708,7 +1710,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/infinite_map.png'),
       );
-    });
+    }, tags: 'golden');
 
     // The room straddles the border between two chunks. Its door is a 32x32
     // tile standing on the floor in front of the top wall, so it overlaps wall
@@ -1735,7 +1737,7 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/infinite_oversized_tiles_orthogonal.png'),
       );
-    });
+    }, tags: 'golden');
 
     test('renders isometric chunks around the origin', () async {
       final bundle = TestAssetBundle(
@@ -1757,6 +1759,6 @@ void main() {
         pngData,
         matchesGoldenFile('goldens/infinite_oversized_tiles_isometric.png'),
       );
-    });
+    }, tags: 'golden');
   });
 }

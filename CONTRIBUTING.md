@@ -53,6 +53,8 @@ For a contribution to be accepted:
 - Format the code using `dart format .`;
 - Lint the code with `melos analyze`;
 - Check that all tests pass: `melos test`;
+- Check that golden tests pass in [golden-env](https://github.com/Albert221/golden-env):
+  `golden-run` in the package you changed (see the [Test writing guide]);
 - Documentation should always be updated or added (if applicable);
 - Examples should always be updated or added (if applicable);
 - Tests should always be updated or added (if applicable) -- check the [Test writing guide] for

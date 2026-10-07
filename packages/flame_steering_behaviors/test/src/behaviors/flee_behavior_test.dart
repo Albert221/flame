@@ -69,6 +69,7 @@ void main() {
           matchesGoldenFile('golden/flee_behavior/render_debug_mode.png'),
         );
       },
+      tags: 'golden',
     );
   });
 }
